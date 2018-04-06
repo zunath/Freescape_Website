@@ -9,7 +9,7 @@ module.exports = (env) => {
 
     const sharedConfig = {
         stats: { modules: false },
-        resolve: { extensions: [ '.js', '.js.map' ] },
+        resolve: { extensions: ['.js', '.js.map'] },
         module: {
             rules: [
                 { test: /\.(png|woff|woff2|eot|ttf|svg)(\?|$)/, use: 'url-loader?limit=100000' }
@@ -42,11 +42,11 @@ module.exports = (env) => {
         plugins: [
 
             new webpack.ProvidePlugin({
-                    $: 'jquery',
-                    jQuery: 'jquery',
-                    'window.jQuery': 'jquery',
-                    Popper: ['popper.js', 'default']
-                }), // Maps these identifiers to the jQuery package (because Bootstrap expects it to be a global variable)
+                $: 'jquery',
+                jQuery: 'jquery',
+                'window.jQuery': 'jquery',
+                Popper: ['popper.js', 'default']
+            }), // Maps these identifiers to the jQuery package (because Bootstrap expects it to be a global variable)
             new webpack.NormalModuleReplacementPlugin(/\/iconv-loader$/, require.resolve('node-noop')), // Workaround for https://github.com/andris9/encoding/issues/16
             new webpack.DefinePlugin({
                 'process.env.NODE_ENV': isDevBuild ? '"development"' : '"production"'
@@ -80,7 +80,7 @@ module.exports = (env) => {
             libraryTarget: 'commonjs2',
         },
         module: {
-            rules: [ { test: /\.css(\?|$)/, use: isDevBuild ? 'css-loader' : 'css-loader?minimize' } ]
+            rules: [{ test: /\.css(\?|$)/, use: isDevBuild ? 'css-loader' : 'css-loader?minimize' }]
         },
         entry: { vendor: ['aspnet-prerendering', 'react-dom/server'] },
         plugins: [

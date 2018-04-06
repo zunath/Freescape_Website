@@ -45,12 +45,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\Scripts\star-wars.js" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ClientApp\components\admin\dm-management\" />
-    <Folder Include="ClientApp\components\admin\loot-table-editor\" />
+    <Folder Include="Data\Entities\" />
     <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
 

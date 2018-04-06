@@ -44,7 +44,7 @@ export default class Header extends React.Component {
                 <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
 
                     <Link className="navbar-brand" to="/">
-                        Cyberpunk Zombie Survival <br />
+                        Freescape <br />
                     </Link>
 
                     <div className="navbar">
@@ -65,13 +65,8 @@ export default class Header extends React.Component {
                                 </Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="https://discord.gg/sg45eY8" target="_blank">
+                                <Link className="nav-link" to="https://discord.gg/q38r3gw" target="_blank">
                                     <i className="fa fa-commenting-o fa-lg" /> Discord (Chat)
-                                </Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-link" to="http://czs.wikia.com/" target="_blank">
-                                    <i className="fa fa-wikipedia-w fa-lg" /> Wiki
                                 </Link>
                             </li>
 
@@ -80,10 +75,10 @@ export default class Header extends React.Component {
                                     <i className="fa fa-code" /> Source Code
                                 </Link>
                                 <div className="dropdown-menu">
-                                    <a className="dropdown-item" href="https://github.com/zunath/CyberpunkZombieSurvival_JVM" target="_blank">
+                                    <a className="dropdown-item" href="https://github.com/zunath/Freescape_JVM" target="_blank">
                                         <i className="fa fa-code" /> Server Source Code
                                     </a>
-                                    <a className="dropdown-item" href="https://github.com/zunath/CyberpunkZombieSurvival_Website" target="_blank">
+                                    <a className="dropdown-item" href="https://github.com/zunath/Freescape_Website" target="_blank">
                                         <i className="fa fa-code" /> Website Source Code
                                     </a>
                                 </div>

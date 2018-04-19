@@ -6,14 +6,14 @@ namespace Freescape.Web.Data.Entities
     {
         public FameRegions()
         {
-            PcregionalFame = new HashSet<PCRegionalFame>();
+            PcregionalFame = new HashSet<PcregionalFame>();
             Quests = new HashSet<Quests>();
         }
 
         public int FameRegionId { get; set; }
         public string Name { get; set; }
 
-        public ICollection<PCRegionalFame> PcregionalFame { get; set; }
+        public ICollection<PcregionalFame> PcregionalFame { get; set; }
         public ICollection<Quests> Quests { get; set; }
     }
 }

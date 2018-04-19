@@ -1,9 +1,9 @@
-﻿
+﻿using System;
+
 namespace Freescape.Web.Data.Entities
 {
     public partial class Users
     {
-
         public long UserId { get; set; }
         public string DiscordUserId { get; set; }
         public string Username { get; set; }
@@ -11,6 +11,7 @@ namespace Freescape.Web.Data.Entities
         public string Discriminator { get; set; }
         public string Email { get; set; }
         public int RoleId { get; set; }
+        public DateTime DateRegistered { get; set; }
 
         public DmroleDomain Role { get; set; }
     }

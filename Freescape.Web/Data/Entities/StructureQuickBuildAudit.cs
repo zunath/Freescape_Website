@@ -10,7 +10,7 @@ namespace Freescape.Web.Data.Entities
         public string Dmname { get; set; }
         public DateTime DateBuilt { get; set; }
 
-        public PCTerritoryFlags PcTerritoryFlag { get; set; }
-        public PCTerritoryFlagsStructures PcTerritoryFlagStructure { get; set; }
+        public PcterritoryFlags PcterritoryFlag { get; set; }
+        public PcterritoryFlagsStructures PcterritoryFlagStructure { get; set; }
     }
 }

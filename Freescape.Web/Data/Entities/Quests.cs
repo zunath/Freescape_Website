@@ -6,7 +6,7 @@ namespace Freescape.Web.Data.Entities
     {
         public Quests()
         {
-            PcquestStatus = new HashSet<PCQuestStatus>();
+            PcquestStatus = new HashSet<PcquestStatus>();
             QuestKillTargetList = new HashSet<QuestKillTargetList>();
             QuestPrerequisitesQuest = new HashSet<QuestPrerequisites>();
             QuestPrerequisitesRequiredQuest = new HashSet<QuestPrerequisites>();
@@ -34,7 +34,7 @@ namespace Freescape.Web.Data.Entities
         public FameRegions FameRegion { get; set; }
         public KeyItems RewardKeyItem { get; set; }
         public KeyItems StartKeyItem { get; set; }
-        public ICollection<PCQuestStatus> PcquestStatus { get; set; }
+        public ICollection<PcquestStatus> PcquestStatus { get; set; }
         public ICollection<QuestKillTargetList> QuestKillTargetList { get; set; }
         public ICollection<QuestPrerequisites> QuestPrerequisitesQuest { get; set; }
         public ICollection<QuestPrerequisites> QuestPrerequisitesRequiredQuest { get; set; }

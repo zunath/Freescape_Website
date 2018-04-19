@@ -2,13 +2,13 @@
 
 namespace Freescape.Web.Data.Entities
 {
-    public partial class PCTerritoryFlags
+    public partial class PcterritoryFlags
     {
-        public PCTerritoryFlags()
+        public PcterritoryFlags()
         {
             ConstructionSites = new HashSet<ConstructionSites>();
-            PcterritoryFlagsPermissions = new HashSet<PCTerritoryFlagsPermissions>();
-            PcterritoryFlagsStructures = new HashSet<PCTerritoryFlagsStructures>();
+            PcterritoryFlagsPermissions = new HashSet<PcterritoryFlagsPermissions>();
+            PcterritoryFlagsStructures = new HashSet<PcterritoryFlagsStructures>();
             StructureQuickBuildAudit = new HashSet<StructureQuickBuildAudit>();
         }
 
@@ -26,8 +26,8 @@ namespace Freescape.Web.Data.Entities
         public PlayerCharacters Player { get; set; }
         public StructureBlueprints StructureBlueprint { get; set; }
         public ICollection<ConstructionSites> ConstructionSites { get; set; }
-        public ICollection<PCTerritoryFlagsPermissions> PcterritoryFlagsPermissions { get; set; }
-        public ICollection<PCTerritoryFlagsStructures> PcterritoryFlagsStructures { get; set; }
+        public ICollection<PcterritoryFlagsPermissions> PcterritoryFlagsPermissions { get; set; }
+        public ICollection<PcterritoryFlagsStructures> PcterritoryFlagsStructures { get; set; }
         public ICollection<StructureQuickBuildAudit> StructureQuickBuildAudit { get; set; }
     }
 }

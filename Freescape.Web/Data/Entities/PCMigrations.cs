@@ -2,16 +2,16 @@
 
 namespace Freescape.Web.Data.Entities
 {
-    public partial class PCMigrations
+    public partial class Pcmigrations
     {
-        public PCMigrations()
+        public Pcmigrations()
         {
-            PcmigrationItems = new HashSet<PCMigrationItems>();
+            PcmigrationItems = new HashSet<PcmigrationItems>();
         }
 
         public int PcmigrationId { get; set; }
         public string Name { get; set; }
 
-        public ICollection<PCMigrationItems> PcmigrationItems { get; set; }
+        public ICollection<PcmigrationItems> PcmigrationItems { get; set; }
     }
 }

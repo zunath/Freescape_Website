@@ -3,12 +3,11 @@ using System.Collections.Generic;
 
 namespace Freescape.Web.Data.Entities
 {
-    public partial class PCTerritoryFlagsStructures
+    public partial class PcterritoryFlagsStructures
     {
-        public PCTerritoryFlagsStructures()
+        public PcterritoryFlagsStructures()
         {
-            PcterritoryFlagsStructuresItems = new HashSet<PCTerritoryFlagsStructuresItems>();
-            PcterritoryFlagsStructuresResearchQueues = new HashSet<PCTerritoryFlagsStructuresResearchQueues>();
+            PcterritoryFlagsStructuresItems = new HashSet<PcterritoryFlagsStructuresItems>();
             StructureQuickBuildAudit = new HashSet<StructureQuickBuildAudit>();
         }
 
@@ -22,11 +21,11 @@ namespace Freescape.Web.Data.Entities
         public double LocationZ { get; set; }
         public double LocationOrientation { get; set; }
         public DateTime CreateDate { get; set; }
+        public string CustomName { get; set; }
 
-        public PCTerritoryFlags PcTerritoryFlag { get; set; }
+        public PcterritoryFlags PcterritoryFlag { get; set; }
         public StructureBlueprints StructureBlueprint { get; set; }
-        public ICollection<PCTerritoryFlagsStructuresItems> PcterritoryFlagsStructuresItems { get; set; }
-        public ICollection<PCTerritoryFlagsStructuresResearchQueues> PcterritoryFlagsStructuresResearchQueues { get; set; }
+        public ICollection<PcterritoryFlagsStructuresItems> PcterritoryFlagsStructuresItems { get; set; }
         public ICollection<StructureQuickBuildAudit> StructureQuickBuildAudit { get; set; }
     }
 }

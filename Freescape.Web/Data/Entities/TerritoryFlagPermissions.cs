@@ -6,7 +6,7 @@ namespace Freescape.Web.Data.Entities
     {
         public TerritoryFlagPermissions()
         {
-            PcterritoryFlagsPermissions = new HashSet<PCTerritoryFlagsPermissions>();
+            PcterritoryFlagsPermissions = new HashSet<PcterritoryFlagsPermissions>();
         }
 
         public int TerritoryFlagPermissionId { get; set; }
@@ -14,6 +14,6 @@ namespace Freescape.Web.Data.Entities
         public bool IsActive { get; set; }
         public bool IsSelectable { get; set; }
 
-        public ICollection<PCTerritoryFlagsPermissions> PcterritoryFlagsPermissions { get; set; }
+        public ICollection<PcterritoryFlagsPermissions> PcterritoryFlagsPermissions { get; set; }
     }
 }

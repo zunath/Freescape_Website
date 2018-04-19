@@ -2,11 +2,11 @@
 
 namespace Freescape.Web.Data.Entities
 {
-    public partial class PCCorpses
+    public partial class Pccorpses
     {
-        public PCCorpses()
+        public Pccorpses()
         {
-            PccorpseItems = new HashSet<PCCorpseItems>();
+            PccorpseItems = new HashSet<PccorpseItems>();
         }
 
         public long PccorpseId { get; set; }
@@ -17,6 +17,6 @@ namespace Freescape.Web.Data.Entities
         public double Orientation { get; set; }
         public string AreaTag { get; set; }
 
-        public ICollection<PCCorpseItems> PccorpseItems { get; set; }
+        public ICollection<PccorpseItems> PccorpseItems { get; set; }
     }
 }

@@ -2,18 +2,18 @@
 
 namespace Freescape.Web.Data.Entities
 {
-    public partial class NPCGroups
+    public partial class Npcgroups
     {
-        public NPCGroups()
+        public Npcgroups()
         {
-            PcquestKillTargetProgress = new HashSet<PCQuestKillTargetProgress>();
+            PcquestKillTargetProgress = new HashSet<PcquestKillTargetProgress>();
             QuestKillTargetList = new HashSet<QuestKillTargetList>();
         }
 
         public int NpcgroupId { get; set; }
         public string Name { get; set; }
 
-        public ICollection<PCQuestKillTargetProgress> PcquestKillTargetProgress { get; set; }
+        public ICollection<PcquestKillTargetProgress> PcquestKillTargetProgress { get; set; }
         public ICollection<QuestKillTargetList> QuestKillTargetList { get; set; }
     }
 }

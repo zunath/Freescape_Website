@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace Freescape.Web.Data.Entities
 {
-    public partial class PCQuestStatus
+    public partial class PcquestStatus
     {
-        public PCQuestStatus()
+        public PcquestStatus()
         {
-            PcquestKillTargetProgress = new HashSet<PCQuestKillTargetProgress>();
+            PcquestKillTargetProgress = new HashSet<PcquestKillTargetProgress>();
         }
 
         public int PcquestStatusId { get; set; }
@@ -21,6 +21,6 @@ namespace Freescape.Web.Data.Entities
         public PlayerCharacters Player { get; set; }
         public Quests Quest { get; set; }
         public QuestRewardItems SelectedItemReward { get; set; }
-        public ICollection<PCQuestKillTargetProgress> PcquestKillTargetProgress { get; set; }
+        public ICollection<PcquestKillTargetProgress> PcquestKillTargetProgress { get; set; }
     }
 }

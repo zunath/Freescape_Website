@@ -8,7 +8,7 @@
         public int Quantity { get; set; }
         public int QuestStateId { get; set; }
 
-        public NPCGroups NpcGroup { get; set; }
+        public Npcgroups Npcgroup { get; set; }
         public Quests Quest { get; set; }
         public QuestStates QuestState { get; set; }
     }

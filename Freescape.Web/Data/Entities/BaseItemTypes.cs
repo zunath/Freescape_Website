@@ -6,12 +6,12 @@ namespace Freescape.Web.Data.Entities
     {
         public BaseItemTypes()
         {
-            PcmigrationItems = new HashSet<PCMigrationItems>();
+            PcmigrationItems = new HashSet<PcmigrationItems>();
         }
 
         public int BaseItemTypeId { get; set; }
         public string Name { get; set; }
 
-        public ICollection<PCMigrationItems> PcmigrationItems { get; set; }
+        public ICollection<PcmigrationItems> PcmigrationItems { get; set; }
     }
 }

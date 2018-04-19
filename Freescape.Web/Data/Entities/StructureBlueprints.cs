@@ -7,8 +7,9 @@ namespace Freescape.Web.Data.Entities
         public StructureBlueprints()
         {
             ConstructionSites = new HashSet<ConstructionSites>();
-            PcterritoryFlags = new HashSet<PCTerritoryFlags>();
-            PcterritoryFlagsStructures = new HashSet<PCTerritoryFlagsStructures>();
+            PcterritoryFlags = new HashSet<PcterritoryFlags>();
+            PcterritoryFlagsStructures = new HashSet<PcterritoryFlagsStructures>();
+            StructureComponents = new HashSet<StructureComponents>();
         }
 
         public int StructureBlueprintId { get; set; }
@@ -19,21 +20,23 @@ namespace Freescape.Web.Data.Entities
         public bool IsActive { get; set; }
         public bool IsTerritoryFlag { get; set; }
         public bool IsUseable { get; set; }
-        public int WoodRequired { get; set; }
-        public int MetalRequired { get; set; }
-        public int NailsRequired { get; set; }
-        public int ClothRequired { get; set; }
-        public int LeatherRequired { get; set; }
         public int ItemStorageCount { get; set; }
-        public int MaxStructuresCount { get; set; }
+        public int VanityCount { get; set; }
         public double MaxBuildDistance { get; set; }
-        public int IronRequired { get; set; }
-        public int ResearchSlots { get; set; }
-        public int RpperSecond { get; set; }
+        public int Level { get; set; }
+        public int? PerkId { get; set; }
+        public int RequiredPerkLevel { get; set; }
+        public bool GivesSkillXp { get; set; }
+        public int SpecialCount { get; set; }
+        public bool IsVanity { get; set; }
+        public bool IsSpecial { get; set; }
+        public int CraftTierLevel { get; set; }
 
+        public Perks Perk { get; set; }
         public StructureCategories StructureCategory { get; set; }
         public ICollection<ConstructionSites> ConstructionSites { get; set; }
-        public ICollection<PCTerritoryFlags> PcterritoryFlags { get; set; }
-        public ICollection<PCTerritoryFlagsStructures> PcterritoryFlagsStructures { get; set; }
+        public ICollection<PcterritoryFlags> PcterritoryFlags { get; set; }
+        public ICollection<PcterritoryFlagsStructures> PcterritoryFlagsStructures { get; set; }
+        public ICollection<StructureComponents> StructureComponents { get; set; }
     }
 }

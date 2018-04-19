@@ -6,7 +6,7 @@ namespace Freescape.Web.Data.Entities
     {
         public QuestRewardItems()
         {
-            PcquestStatus = new HashSet<PCQuestStatus>();
+            PcquestStatus = new HashSet<PcquestStatus>();
         }
 
         public int QuestRewardItemId { get; set; }
@@ -15,6 +15,6 @@ namespace Freescape.Web.Data.Entities
         public int Quantity { get; set; }
 
         public Quests Quest { get; set; }
-        public ICollection<PCQuestStatus> PcquestStatus { get; set; }
+        public ICollection<PcquestStatus> PcquestStatus { get; set; }
     }
 }

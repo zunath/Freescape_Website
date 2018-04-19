@@ -6,7 +6,7 @@ namespace Freescape.Web.Data.Entities
     {
         public KeyItems()
         {
-            PckeyItems = new HashSet<PCKeyItems>();
+            PckeyItems = new HashSet<PckeyItems>();
             QuestRequiredKeyItemList = new HashSet<QuestRequiredKeyItemList>();
             QuestsRewardKeyItem = new HashSet<Quests>();
             QuestsStartKeyItem = new HashSet<Quests>();
@@ -18,7 +18,7 @@ namespace Freescape.Web.Data.Entities
         public string Description { get; set; }
 
         public KeyItemCategories KeyItemCategory { get; set; }
-        public ICollection<PCKeyItems> PckeyItems { get; set; }
+        public ICollection<PckeyItems> PckeyItems { get; set; }
         public ICollection<QuestRequiredKeyItemList> QuestRequiredKeyItemList { get; set; }
         public ICollection<Quests> QuestsRewardKeyItem { get; set; }
         public ICollection<Quests> QuestsStartKeyItem { get; set; }

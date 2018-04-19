@@ -2,7 +2,7 @@
 
 namespace Freescape.Web.Data.Entities
 {
-    public partial class PCKeyItems
+    public partial class PckeyItems
     {
         public int PckeyItemId { get; set; }
         public string PlayerId { get; set; }

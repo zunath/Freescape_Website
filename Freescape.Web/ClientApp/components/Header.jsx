@@ -60,24 +60,24 @@ export default class Header extends React.Component {
                                     <i className="fa fa-info-circle fa-lg" /> &nbsp;Gameplay
                                 </Link>
                                 <div className="dropdown-menu">
-                                    <a className="dropdown-item" href="/skills">
+                                    <Link className="dropdown-item" to="/skills">
                                         <i className="fa fa-bolt" /> &nbsp;Skills
-                                    </a>
-                                    <a className="dropdown-item" href="/perks">
+                                    </Link>
+                                    <Link className="dropdown-item" to="/perks">
                                         <i className="fa fa-level-up" /> &nbsp;Perks
-                                    </a>
-                                    <a className="dropdown-item" href="/backgrounds">
+                                    </Link>
+                                    <Link className="dropdown-item" to="/backgrounds">
                                         <i className="fa fa-user-secret" /> &nbsp;Character Backgrounds
-                                    </a>
-                                    <a className="dropdown-item" href="/survival">
+                                    </Link>
+                                    <Link className="dropdown-item" to="/survival">
                                         <i className="fa fa-compass" /> &nbsp;Survival
-                                    </a>
-                                    <a className="dropdown-item" href="/crafting">
+                                    </Link>
+                                    <Link className="dropdown-item" to="/crafting">
                                         <i className="fa fa-gavel" /> &nbsp;Crafting
-                                    </a>
-                                    <a className="dropdown-item" href="/construction">
+                                    </Link>
+                                    <Link className="dropdown-item" to="/construction">
                                         <i className="fa fa-building" /> &nbsp;Construction
-                                    </a>
+                                    </Link>
 
                                 </div>
                             </li>

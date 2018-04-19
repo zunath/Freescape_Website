@@ -6,12 +6,12 @@ namespace Freescape.Web.Data.Entities
     {
         public BuildPrivacyDomain()
         {
-            PcterritoryFlags = new HashSet<PCTerritoryFlags>();
+            PcterritoryFlags = new HashSet<PcterritoryFlags>();
         }
 
         public int BuildPrivacyTypeId { get; set; }
         public string Name { get; set; }
 
-        public ICollection<PCTerritoryFlags> PcterritoryFlags { get; set; }
+        public ICollection<PcterritoryFlags> PcterritoryFlags { get; set; }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Freescape.Web.Data.Entities
 {
-    public partial class PCOutfits
+    public partial class Pcoutfits
     {
         public string PlayerId { get; set; }
         public byte[] Outfit1 { get; set; }

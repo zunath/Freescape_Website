@@ -1,6 +1,6 @@
 ﻿namespace Freescape.Web.Data.Entities
 {
-    public partial class PCRegionalFame
+    public partial class PcregionalFame
     {
         public int PcregionalFameId { get; set; }
         public string PlayerId { get; set; }

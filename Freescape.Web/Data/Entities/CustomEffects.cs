@@ -6,7 +6,7 @@ namespace Freescape.Web.Data.Entities
     {
         public CustomEffects()
         {
-            PccustomEffects = new HashSet<PCCustomEffects>();
+            PccustomEffects = new HashSet<PccustomEffects>();
         }
 
         public long CustomEffectId { get; set; }
@@ -17,6 +17,6 @@ namespace Freescape.Web.Data.Entities
         public string ContinueMessage { get; set; }
         public string WornOffMessage { get; set; }
 
-        public ICollection<PCCustomEffects> PccustomEffects { get; set; }
+        public ICollection<PccustomEffects> PccustomEffects { get; set; }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Freescape.Web.Data.Entities
 {
-    public partial class AuthorizedDMs
+    public partial class AuthorizedDms
     {
         public int AuthorizedDmid { get; set; }
         public string Name { get; set; }

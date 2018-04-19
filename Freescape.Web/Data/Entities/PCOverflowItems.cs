@@ -1,6 +1,6 @@
 ﻿namespace Freescape.Web.Data.Entities
 {
-    public partial class PCOverflowItems
+    public partial class PcoverflowItems
     {
         public long PcoverflowItemId { get; set; }
         public string PlayerId { get; set; }

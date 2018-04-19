@@ -1,6 +1,6 @@
 ﻿namespace Freescape.Web.Data.Entities
 {
-    public partial class PCCustomEffects
+    public partial class PccustomEffects
     {
         public long PccustomEffectId { get; set; }
         public string PlayerId { get; set; }

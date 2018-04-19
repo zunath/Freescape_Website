@@ -1,6 +1,6 @@
 ﻿namespace Freescape.Web.Data.Entities
 {
-    public partial class PCSearchSiteItems
+    public partial class PcsearchSiteItems
     {
         public long PcsearchSiteItemId { get; set; }
         public string PlayerId { get; set; }

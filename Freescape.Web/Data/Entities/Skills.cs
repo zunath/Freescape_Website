@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Freescape.Web.Data.Entities
 {
@@ -19,14 +20,20 @@ namespace Freescape.Web.Data.Entities
         public int MaxRank { get; set; }
         public bool IsActive { get; set; }
         public string Description { get; set; }
-        public int Primary { get; set; }
-        public int Secondary { get; set; }
-        public int Tertiary { get; set; }
+        public int PrimaryID { get; set; }
+        public int SecondaryID { get; set; }
+        public int TertiaryID { get; set; }
 
-        public Entities.Attributes PrimaryNavigation { get; set; }
-        public Entities.Attributes SecondaryNavigation { get; set; }
+
+        [ForeignKey("PrimaryID")]
+        public Attributes Primary { get; set; }
+
+        [ForeignKey("SecondaryID")]
+        public Attributes Secondary { get; set; }
         public SkillCategories SkillCategory { get; set; }
-        public Entities.Attributes TertiaryNavigation { get; set; }
+
+        [ForeignKey("TertiaryID")]
+        public Attributes Tertiary { get; set; }
         public ICollection<CraftBlueprints> CraftBlueprints { get; set; }
         public ICollection<Items> Items { get; set; }
         public ICollection<Pcskills> Pcskills { get; set; }

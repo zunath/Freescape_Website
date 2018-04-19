@@ -1,15 +1,12 @@
 ﻿import * as React from 'react';
-import * as dotnetify from 'dotnetify';
 
 export default class Downloads extends React.Component {
     constructor(props) {
         super(props);
-        this.vm = dotnetify.react.connect('DownloadsViewModel', this);
-        this.state = { DownloadList: [] }
     }
 
     componentWillUnmount() {
-        this.vm.$destroy();
+
     }
 
     render() {

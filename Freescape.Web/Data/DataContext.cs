@@ -94,9 +94,9 @@ namespace Freescape.Web.Data
         {
             modelBuilder.Entity<Entities.Attributes>(entity =>
             {
-                entity.HasKey(e => e.AttributeId);
+                entity.HasKey(e => e.AttributeID);
 
-                entity.Property(e => e.AttributeId)
+                entity.Property(e => e.AttributeID)
                     .HasColumnName("AttributeID")
                     .ValueGeneratedNever();
 
@@ -105,7 +105,7 @@ namespace Freescape.Web.Data
                     .HasMaxLength(3)
                     .HasDefaultValueSql("('')");
 
-                entity.Property(e => e.Nwnvalue)
+                entity.Property(e => e.NWNValue)
                     .HasColumnName("NWNValue")
                     .HasDefaultValueSql("((0))");
             });
@@ -1883,37 +1883,23 @@ namespace Freescape.Web.Data
                     .HasMaxLength(32)
                     .HasDefaultValueSql("('')");
 
-                entity.Property(e => e.Primary).HasDefaultValueSql("('')");
+                entity.Property(e => e.PrimaryID)
+                    .HasColumnName("Primary")
+                    .HasDefaultValueSql("('')");
 
-                entity.Property(e => e.Secondary).HasDefaultValueSql("('')");
+                entity.Property(e => e.SecondaryID)
+                    .HasColumnName("Secondary")
+                    .HasDefaultValueSql("('')");
 
-                entity.Property(e => e.SkillCategoryId).HasColumnName("SkillCategoryID");
+                entity.Property(e => e.SkillCategoryId)
+                    .HasColumnName("SkillCategoryID");
 
-                entity.Property(e => e.Tertiary).HasDefaultValueSql("('')");
-
-                entity.HasOne(d => d.PrimaryNavigation)
-                    .WithMany(p => p.SkillsPrimaryNavigation)
-                    .HasForeignKey(d => d.Primary)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Skills_Primary");
-
-                entity.HasOne(d => d.SecondaryNavigation)
-                    .WithMany(p => p.SkillsSecondaryNavigation)
-                    .HasForeignKey(d => d.Secondary)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Skills_Secondary");
-
-                entity.HasOne(d => d.SkillCategory)
-                    .WithMany(p => p.Skills)
-                    .HasForeignKey(d => d.SkillCategoryId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Skills_SkillCategoryID");
-
-                entity.HasOne(d => d.TertiaryNavigation)
-                    .WithMany(p => p.SkillsTertiaryNavigation)
-                    .HasForeignKey(d => d.Tertiary)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Skills_Tertiary");
+                entity.Property(e => e.TertiaryID)
+                    .HasColumnName("Tertiary")
+                    .HasDefaultValueSql("('')");
+               
+                
+                
             });
 
             modelBuilder.Entity<SkillXprequirement>(entity =>

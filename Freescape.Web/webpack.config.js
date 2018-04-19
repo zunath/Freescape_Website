@@ -20,7 +20,8 @@ module.exports = (env) => {
                 { test: /\.(png|jpg|jpeg|gif|svg)$/, use: 'url-loader?limit=25000' }
             ]
         },
-        plugins: []
+        plugins: [],
+        mode: isDevBuild ? 'development' : 'production'
     });
 
     // Configuration for client-side bundle suitable for running in browsers

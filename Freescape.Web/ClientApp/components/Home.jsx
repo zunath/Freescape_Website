@@ -1,6 +1,9 @@
 import * as React from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import { Link } from 'react-router-dom';
+import SS1 from '../images/Freescape_SS1.jpg';
+import SS2 from '../images/Freescape_SS2.jpg';
+import SS3 from '../images/Freescape_SS3.jpg';
 
 export default class Home extends React.Component {
     render() {
@@ -9,16 +12,65 @@ export default class Home extends React.Component {
 
                 <h1 className="center">Welcome to Freescape!</h1>
                 <h3 className="center">A Neverwinter Nights: Enhanced Edition Server</h3>
-                <h4 className="center">
-                    Direct Connect: freescape.eastus.cloudapp.azure.com:5121 <Link to="/downloads"><i>(Download Files)</i></Link>
-                </h4>
 
-                <h5 className="center">
-                <i><a href="http://store.steampowered.com/app/704450/Neverwinter_Nights_Enhanced_Edition/" target="_blank">Buy NWN today on Steam</a></i> or <i><a href="https://www.beamdog.com/products/neverwinter-nights-enhanced-edition#signup-form" target="_blank">directly from Beamdog! </a></i>
-                </h5>
+                <div className="row">
+                    <div className="col">
+                        <div className="card border-primary mb-3">
+                            <div className="card-header">About Freescape</div>
+                            <div className="card-body">
+                                <div className="card-text">
+                                    Freescape is a persistent world entirely driven by players. We give you the tools - you make the world!
+                                    <br />
+                                    <ul>
+                                        <li><Link to="/skills">Skill-based progression</Link></li>
+                                        <li><Link to="/perks">Custom perks & magic system</Link></li>
+                                        <li><Link to="/lore">Unique setting</Link></li>
+                                        <li>Expansive sandbox</li>
+                                        <li><Link to="/survival">Survival gameplay</Link></li>
+                                        <li><Link to="/construction">Player-built bases</Link></li>
+                                        <li>And much more!</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col">
+                        <div className="card border-primary mb-3">
+                            <div className="card-header">Connection Info</div>
+                            <div className="card-body">
+                                <div className="card-text">
+                                    Direct Connect: freescape.eastus.cloudapp.azure.com:5121
+                                    <br />
+                                    Downloads: <Link to="/downloads">Click Here</Link>
+                                </div>
+                            </div>
+                        </div>
 
-                <Carousel showArrows={true} autoPlay={true} infiniteLoop={true} useKeyboardArrows={true} stopOnHover={true} dynamicHeight={true}>
-                    
+                        <div className="card border-primary mb-3">
+                            <div className="card-header">Buy Neverwinter Nights: Enhanced Edition</div>
+                            <div className="card-body">
+                                <div className="card-text">
+                                    Buy on Steam: <a href="http://store.steampowered.com/app/704450/Neverwinter_Nights_Enhanced_Edition/" target="_blank">Click Here</a>
+                                    <br />
+                                    Buy from Beamdog: <a href="https://www.beamdog.com/products/neverwinter-nights-enhanced-edition#signup-form" target="_blank">Click Here</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <Carousel>
+                    <div>
+                        <img src={SS1} alt="Screenshot 1" className="img-fluid" />
+                    </div>
+                    <div>
+                        <img src={SS2} alt="Screenshot 2" className="img-fluid" />
+                    </div>
+                    <div>
+                        <img src={SS3} alt="Screenshot 3" className="img-fluid" />
+                    </div>
                 </Carousel>
 
             </div>

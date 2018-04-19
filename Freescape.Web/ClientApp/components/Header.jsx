@@ -2,6 +2,7 @@
 import { Link } from 'react-router-dom';
 import * as dotnetify from 'dotnetify';
 import Logout from './Logout';
+import Logo from '../images/logo.png';
 
 export default class Header extends React.Component {
     constructor(props) {
@@ -44,7 +45,7 @@ export default class Header extends React.Component {
                 <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
 
                     <Link className="navbar-brand" to="/">
-                        Freescape <br />
+                        <img src={Logo} alt="Freescape" />
                     </Link>
 
                     <div className="navbar">
@@ -54,10 +55,31 @@ export default class Header extends React.Component {
                                     <i className="fa fa-book fa-lg" /> Lore
                                 </Link>
                             </li>
-                            <li className="nav-item">
-                                <Link className="nav-link" to="/features">
-                                    <i className="fa fa-info-circle fa-lg" /> Features
+                            <li className="nav-item dropdown">
+                                <Link id="gameplayDropdown" className="nav-link dropdown-toggle" to="#" data-toggle="dropdown" role="button">
+                                    <i className="fa fa-info-circle fa-lg" /> &nbsp;Gameplay
                                 </Link>
+                                <div className="dropdown-menu">
+                                    <a className="dropdown-item" href="/skills">
+                                        <i className="fa fa-bolt" /> &nbsp;Skills
+                                    </a>
+                                    <a className="dropdown-item" href="/perks">
+                                        <i className="fa fa-level-up" /> &nbsp;Perks
+                                    </a>
+                                    <a className="dropdown-item" href="/backgrounds">
+                                        <i className="fa fa-user-secret" /> &nbsp;Character Backgrounds
+                                    </a>
+                                    <a className="dropdown-item" href="/survival">
+                                        <i className="fa fa-compass" /> &nbsp;Survival
+                                    </a>
+                                    <a className="dropdown-item" href="/crafting">
+                                        <i className="fa fa-gavel" /> &nbsp;Crafting
+                                    </a>
+                                    <a className="dropdown-item" href="/construction">
+                                        <i className="fa fa-building" /> &nbsp;Construction
+                                    </a>
+
+                                </div>
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link" to="/downloads">
@@ -76,10 +98,10 @@ export default class Header extends React.Component {
                                 </Link>
                                 <div className="dropdown-menu">
                                     <a className="dropdown-item" href="https://github.com/zunath/Freescape_JVM" target="_blank">
-                                        <i className="fa fa-code" /> Server Source Code
+                                        <i className="fa fa-code" /> &nbsp;Server Source Code
                                     </a>
                                     <a className="dropdown-item" href="https://github.com/zunath/Freescape_Website" target="_blank">
-                                        <i className="fa fa-code" /> Website Source Code
+                                        <i className="fa fa-code" /> &nbsp;Website Source Code
                                     </a>
                                 </div>
                             </li>
@@ -88,7 +110,7 @@ export default class Header extends React.Component {
 
                             {this.state.Username === '' || this.state.Username === null || this.state.Username === undefined ?
 
-                                <li className="nav-item pull-right">
+                                <li className="nav-item float-right">
                                     <a className="nav-link" href="/Authorization/Login">
                                         <i className="fa fa-sign-in fa-lg" /> Login (With Discord)
                                     </a>

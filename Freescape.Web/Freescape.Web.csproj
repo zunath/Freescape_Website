@@ -10,9 +10,9 @@
   <ItemGroup>
     <PackageReference Include="AspNet.Security.OAuth.Discord" Version="2.0.0-rc2-0535" />
     <PackageReference Include="AspNet.Security.OAuth.Validation" Version="2.0.0-rc1-final" />
-    <PackageReference Include="DotNetify.SignalR" Version="2.2.2-pre" />
-    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.2" />
+    <PackageReference Include="DotNetify.SignalR" Version="3.0.0-pre" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.7" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.3" />
   </ItemGroup>
 
   <ItemGroup>

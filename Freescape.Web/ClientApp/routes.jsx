@@ -13,10 +13,15 @@ import QuestDetails from './components/admin/quest-editor/QuestDetails';
 import QuestPrerequisites from './components/admin/quest-editor/QuestPrerequisites';
 import QuestRewards from './components/admin/quest-editor/QuestRewards';
 import QuestStates from './components/admin/quest-editor/QuestStates';
-import Features from './components/Features';
 import Admin from './components/Admin';
 import Downloads from './components/Downloads';
 import NotFound from './components/NotFound';
+import CharacterBackgrounds from './components/CharacterBackgrounds';
+import Crafting from './components/Crafting';
+import Perks from './components/Perks';
+import Skills from './components/Skills';
+import Survival from './components/Survival';
+import Construction from './components/Construction';
 
 export const routes =
     <Layout>
@@ -28,9 +33,14 @@ export const routes =
             <Route exact path="/" component={Home} />
             <Route exact path="/home" component={Home} />
             <Route exact path="/lore" component={Lore} />
-            <Route exact path="/features" component={Features} />
             <Route exact path="/admin" component={Admin} />
             <Route exact path="/downloads" component={Downloads} />
+            <Route exact path="/backgrounds" component={CharacterBackgrounds} />
+            <Route exact path="/crafting" component={Crafting} />
+            <Route exact path="/perks" component={Perks} />
+            <Route exact path="/skills" component={Skills} />
+            <Route exact path="/survival" component={Survival} />
+            <Route exact path="/construction" component={Construction} />
 
             /* User Logged-In Routes */
             <Route exact path="/user-profile" component={UserProfile} />

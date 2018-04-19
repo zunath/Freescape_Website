@@ -22,10 +22,8 @@ export default class Downloads extends React.Component {
                     <div className="card-body">
                         <h4 className="card-title center">Automatic Downloads</h4>
                         <p className="card-text">
-                            <p>
-                                The recommended way to download the required files is to subscribe to the CEP on Steam. Simply click the button below, click "Subscribe" and the files will download automatically!
-                            </p>
-
+                            The recommended way to download the required files is to subscribe to the CEP on Steam. Simply click the button below, click "Subscribe" and the files will download automatically!
+                            
                             <a className="btn btn-outline-primary btn-block" target="_blank" href="https://steamcommunity.com/sharedfiles/filedetails/?id=1312882397">
                                 Subscribe on Steam
                             </a>
@@ -40,9 +38,12 @@ export default class Downloads extends React.Component {
                     <div className="card-body">
                         <h4 className="card-title center">Manual Downloads</h4>
                         <p className="card-text">
-                            <p>
-                                If you don't use Steam or would prefer to manually install the required haks, you can do so at this link: https://neverwintervault.org/cep
-                            </p>
+                            If you don't use Steam or would prefer to manually install the required haks, you can find them on the Neverwinter Vault.
+                            
+                            <a className="btn btn-outline-primary btn-block" target="_blank" href="https://neverwintervault.org/cep">
+                                Download on NWN Vault
+                            </a>
+
                         </p>
                     </div>
                 </div>

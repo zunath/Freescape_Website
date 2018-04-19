@@ -6,6 +6,7 @@ import QuestPrerequisites from './QuestPrerequisites';
 import QuestStates from './QuestStates';
 import QuestRewards from './QuestRewards';
 import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default class QuestEditor extends React.Component {
     constructor(props) {

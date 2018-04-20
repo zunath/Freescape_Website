@@ -1,12 +1,12 @@
 ﻿namespace Freescape.Web.Data.Entities
 {
-    public partial class SkillXprequirement
+    public class SkillXPRequirement
     {
-        public int SkillXprequirementId { get; set; }
-        public int SkillId { get; set; }
+        public int SkillXPRequirementID { get; set; }
+        public int SkillID { get; set; }
         public int Rank { get; set; }
-        public int Xp { get; set; }
+        public int XP { get; set; }
 
-        public Skills Skill { get; set; }
+        public Skill Skill { get; set; }
     }
 }

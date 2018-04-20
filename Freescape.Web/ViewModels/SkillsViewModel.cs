@@ -11,17 +11,17 @@ namespace Freescape.Web.ViewModels
     {
         private readonly DataContext _db;
 
-        public string SkillList_itemkey => nameof(Skills.SkillCategoryId);
-        public IEnumerable<Skills> SkillList
+        public string SkillList_itemkey => nameof(Skill.SkillCategoryID);
+        public IEnumerable<Skill> SkillList
         {
-            get => Get<IEnumerable<Skills>>();
+            get => Get<IEnumerable<Skill>>();
             set => Set(value);
         }
 
-        public string SkillCategoryList_itemkey => nameof(SkillCategories.SkillCategoryId);
-        public IEnumerable<SkillCategories> SkillCategoryList
+        public string SkillCategoryList_itemkey => nameof(SkillCategory.SkillCategoryID);
+        public IEnumerable<SkillCategory> SkillCategoryList
         {
-            get => Get<IEnumerable<SkillCategories>>();
+            get => Get<IEnumerable<SkillCategory>>();
             set => Set(value);
         }
 
@@ -45,9 +45,9 @@ namespace Freescape.Web.ViewModels
             }
         }
 
-        public Skills SelectedSkill
+        public Skill SelectedSkill
         {
-            get => Get<Skills>();
+            get => Get<Skill>();
             set => Set(value);
         }
 
@@ -60,8 +60,8 @@ namespace Freescape.Web.ViewModels
                 .OrderBy(o => o.Sequence)
                 .ToList();
 
-            SelectedCategoryID = SkillCategoryList.First().SkillCategoryId;
-            SelectedSkillID = SkillList.First().SkillId;
+            SelectedCategoryID = SkillCategoryList.First().SkillCategoryID;
+            SelectedSkillID = SkillList.First().SkillID;
         }
 
         private void LoadSkillList()
@@ -71,16 +71,16 @@ namespace Freescape.Web.ViewModels
                 .Include(i => i.Secondary)
                 .Include(i => i.Tertiary)
                 .Where(x => x.IsActive &&
-                            x.SkillCategoryId == SelectedCategoryID)
-                .OrderBy(o => o.SkillId)
+                            x.SkillCategoryID == SelectedCategoryID)
+                .OrderBy(o => o.SkillID)
                 .ToList();
 
-            SelectedSkillID = SkillList.First().SkillId;
+            SelectedSkillID = SkillList.First().SkillID;
         }
 
         private void LoadSkill()
         {
-            SelectedSkill = SkillList.Single(x => x.SkillId == SelectedSkillID);
+            SelectedSkill = SkillList.Single(x => x.SkillID == SelectedSkillID);
         }
     }
 }

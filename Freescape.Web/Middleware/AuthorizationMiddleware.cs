@@ -20,7 +20,7 @@ namespace Freescape.Web.Middleware
 
         public Task Invoke(DotNetifyHubContext context, NextDelegate next)
         {
-            Type type = Type.GetType($"{typeof(HomeViewModel).Namespace}.{context.VMId}");
+            Type type = Type.GetType($"{typeof(HeaderViewModel).Namespace}.{context.VMId}");
 
             RoleRequiredAttribute attribute = type.GetCustomAttributes(typeof(RoleRequiredAttribute), true).FirstOrDefault() as RoleRequiredAttribute;
             

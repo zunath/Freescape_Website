@@ -13,7 +13,7 @@ namespace Freescape.Web.ViewModels
     {
         public ConnectionLogsViewModel(DataContext db)
             : base(BuildClientData(db),
-                nameof(ClientLogEvents.ClientLogEventId))
+                nameof(ClientLogEvent.ClientLogEventID))
         {
         }
 

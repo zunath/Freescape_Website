@@ -98,7 +98,7 @@ namespace Freescape.Web.ViewModels
                 .Select(x => new QuestInfoUI
                 {
                     Name = x.Name,
-                    QuestID = x.QuestId
+                    QuestID = x.QuestID
                 }).ToList();
 
             QuestInfoUI selectOption = new QuestInfoUI()
@@ -123,7 +123,7 @@ namespace Freescape.Web.ViewModels
                 .Select(x => new QuestKeyItemUI
                 {
                     Name = x.Name,
-                    KeyItemID = x.KeyItemId
+                    KeyItemID = x.KeyItemID
                 }).ToList();
 
             QuestKeyItemUI selectKeyItem = new QuestKeyItemUI
@@ -139,22 +139,22 @@ namespace Freescape.Web.ViewModels
                 .Select(x => new QuestFameRegionUI
                 {
                     Name = x.Name,
-                    FameRegionID = x.FameRegionId
+                    FameRegionID = x.FameRegionID
                 }).ToList();
 
             FameRegions = fameRegions;
 
-            QuestTypes = _db.QuestTypeDomain.OrderBy(x => x.QuestTypeId)
+            QuestTypes = _db.QuestTypeDomain.OrderBy(x => x.QuestTypeID)
                 .Select(x => new QuestTypeUI
                 {
-                    QuestTypeID = x.QuestTypeId,
+                    QuestTypeID = x.QuestTypeID,
                     Name = x.Name
                 }).ToList();
 
-            NPCGroups = _db.Npcgroups.OrderBy(x => x.NpcgroupId)
+            NPCGroups = _db.NPCGroups.OrderBy(x => x.NPCGroupID)
                 .Select(x => new QuestNPCGroupUI
                 {
-                    NPCGroupID = x.NpcgroupId,
+                    NPCGroupID = x.NPCGroupID,
                     Name = x.Name
                 }).ToList();
 
@@ -162,7 +162,7 @@ namespace Freescape.Web.ViewModels
 
         public Action<int> DeleteQuest => questID =>
         {
-            var dbQuest = _db.Quests.SingleOrDefault(x => x.QuestId == questID);
+            var dbQuest = _db.Quests.SingleOrDefault(x => x.QuestID == questID);
             if (dbQuest == null) return;
 
             _db.QuestRewardItems.RemoveRange(dbQuest.QuestRewardItems);
@@ -205,7 +205,7 @@ namespace Freescape.Web.ViewModels
             }
 
             var quest = _db.Quests
-                .SingleOrDefault(x => x.QuestId == questID);
+                .SingleOrDefault(x => x.QuestID == questID);
 
             if (quest == null)
             {
@@ -243,37 +243,37 @@ namespace Freescape.Web.ViewModels
         {
             var uiQuest = new QuestDetailsUI
             {
-                QuestID = quest.QuestId,
+                QuestID = quest.QuestID,
                 Name = quest.Name,
                 JournalTag = quest.JournalTag,
-                FameRegionID = quest.FameRegionId,
+                FameRegionID = quest.FameRegionID,
                 RequiredFameAmount = quest.RequiredFameAmount,
                 AllowRewardSelection = quest.AllowRewardSelection,
                 IsRepeatable = quest.IsRepeatable,
                 MapNoteTag = quest.MapNoteTag,
-                StartKeyItemID = quest.StartKeyItemId ?? -1,
+                StartKeyItemID = quest.StartKeyItemID ?? -1,
                 RemoveStartKeyItemAfterCompletion = quest.RemoveStartKeyItemAfterCompletion,
                 Rewards = new QuestRewardsUI
                 {
                     Fame = quest.RewardFame,
                     Gold = quest.RewardGold,
-                    KeyItemID = quest.RewardKeyItemId ?? -1,
-                    XP = quest.RewardXp,
+                    KeyItemID = quest.RewardKeyItemID ?? -1,
+                    XP = quest.RewardXP,
                     RewardItems = quest.QuestRewardItems.Select(x => new QuestRewardItemUI()
                     {
                         Quantity = x.Quantity,
                         Resref = x.Resref
                     }).ToList()
                 },
-                PrerequisiteQuestIDs = quest.QuestPrerequisitesQuest.Select(x => x.RequiredQuestId).ToList(),
+                PrerequisiteQuestIDs = quest.QuestPrerequisitesQuest.Select(x => x.RequiredQuestID).ToList(),
                 QuestStates = quest.QuestStates.Select(x => new QuestStateUI
                 {
-                    QuestTypeID = x.QuestTypeId,
-                    JournalStateID = x.JournalStateId,
+                    QuestTypeID = x.QuestTypeID,
+                    JournalStateID = x.JournalStateID,
                     KillTargets = x.QuestKillTargetList.Select(y => new QuestKillTargetUI
                     {
                         Quantity = y.Quantity,
-                        NPCGroupID = y.NpcgroupId
+                        NPCGroupID = y.NPCGroupID
                     }).ToList(),
                     RequiredItems = x.QuestRequiredItemList.Select(y => new QuestRequiredItemUI
                     {
@@ -282,7 +282,7 @@ namespace Freescape.Web.ViewModels
                     }).ToList(),
                     RequiredKeyItems = x.QuestRequiredKeyItemList.Select(y => new QuestRequiredKeyItemUI
                     {
-                        RequiredKeyItemID = y.KeyItemId
+                        RequiredKeyItemID = y.KeyItemID
                     }).ToList()
 
                 }).ToList()
@@ -313,25 +313,25 @@ namespace Freescape.Web.ViewModels
                 return;
             }
 
-            var quest = _db.Quests.SingleOrDefault(x => x.QuestId == questDetails.QuestID) ?? new Quests();
+            var quest = _db.Quests.SingleOrDefault(x => x.QuestID == questDetails.QuestID) ?? new Quests();
 
             quest.Name = questDetails.Name;
             quest.JournalTag = questDetails.JournalTag;
-            quest.FameRegionId = questDetails.FameRegionID;
+            quest.FameRegionID = questDetails.FameRegionID;
             quest.RequiredFameAmount = questDetails.RequiredFameAmount;
             quest.AllowRewardSelection = questDetails.AllowRewardSelection;
             quest.RewardGold = questDetails.Rewards.Gold;
-            quest.RewardXp = questDetails.Rewards.XP;
+            quest.RewardXP = questDetails.Rewards.XP;
 
-            if (questDetails.Rewards.KeyItemID <= 0) quest.RewardKeyItemId = null;
-            else quest.RewardKeyItemId = questDetails.Rewards.KeyItemID;
+            if (questDetails.Rewards.KeyItemID <= 0) quest.RewardKeyItemID = null;
+            else quest.RewardKeyItemID = questDetails.Rewards.KeyItemID;
 
             quest.RewardFame = questDetails.Rewards.Fame;
             quest.IsRepeatable = questDetails.IsRepeatable;
             quest.MapNoteTag = questDetails.MapNoteTag;
 
-            if (questDetails.StartKeyItemID <= 0) quest.StartKeyItemId = null;
-            else quest.StartKeyItemId = questDetails.StartKeyItemID;
+            if (questDetails.StartKeyItemID <= 0) quest.StartKeyItemID = null;
+            else quest.StartKeyItemID = questDetails.StartKeyItemID;
 
             quest.RemoveStartKeyItemAfterCompletion = questDetails.RemoveStartKeyItemAfterCompletion;
 
@@ -340,9 +340,9 @@ namespace Freescape.Web.ViewModels
             quest.QuestPrerequisitesQuest.Clear();
             foreach (var prereq in questDetails.PrerequisiteQuestIDs)
             {
-                QuestPrerequisites dbPrereq = new QuestPrerequisites
+                QuestPrerequisite dbPrereq = new QuestPrerequisite
                 {
-                    RequiredQuestId = prereq,
+                    RequiredQuestID = prereq,
                     Quest = quest
                 };
 
@@ -364,12 +364,12 @@ namespace Freescape.Web.ViewModels
             foreach (var state in questDetails.QuestStates)
             {
                 sequence++;
-                QuestStates dbState = new QuestStates
+                QuestState dbState = new QuestState
                 {
                     Quest = quest,
                     Sequence = sequence,
-                    QuestTypeId = state.QuestTypeID,
-                    JournalStateId = state.JournalStateID,
+                    QuestTypeID = state.QuestTypeID,
+                    JournalStateID = state.JournalStateID,
                     IsFinalState = sequence == questDetails.QuestStates.Count
                 };
 
@@ -379,7 +379,7 @@ namespace Freescape.Web.ViewModels
                     {
                         QuestKillTargetList dbKT = new QuestKillTargetList
                         {
-                            NpcgroupId = kt.NPCGroupID,
+                            NPCGroupID = kt.NPCGroupID,
                             Quantity = kt.Quantity,
                             Quest = quest,
                             QuestState = dbState
@@ -409,7 +409,7 @@ namespace Freescape.Web.ViewModels
                     {
                         QuestRequiredKeyItemList dbKRI = new QuestRequiredKeyItemList
                         {
-                            KeyItemId = kri.RequiredKeyItemID,
+                            KeyItemID = kri.RequiredKeyItemID,
                             Quest = quest,
                             QuestState = dbState
                         };
@@ -428,7 +428,7 @@ namespace Freescape.Web.ViewModels
             quest.QuestRewardItems.Clear();
             foreach (var reward in questDetails.Rewards.RewardItems)
             {
-                QuestRewardItems dbReward = new QuestRewardItems
+                QuestRewardItem dbReward = new QuestRewardItem
                 {
                     Quantity = reward.Quantity,
                     Resref = reward.Resref,
@@ -440,7 +440,7 @@ namespace Freescape.Web.ViewModels
             }
 
 
-            if (quest.QuestId <= 0)
+            if (quest.QuestID <= 0)
             {
                 _db.Quests.Add(quest);
             }
@@ -451,7 +451,7 @@ namespace Freescape.Web.ViewModels
                 NotificationMessage = "Changes were saved successfully.";
                 NotificationSuccessful = true;
                 LoadQuestList();
-                ActiveQuestID = quest.QuestId;
+                ActiveQuestID = quest.QuestID;
                 ActiveQuest = BuildQuestUIObject(quest);
             }
             catch

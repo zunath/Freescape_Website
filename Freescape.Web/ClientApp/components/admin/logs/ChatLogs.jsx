@@ -49,28 +49,28 @@ export default class ChatLogs extends React.Component{
                         </thead>
                         <tbody>
 
-                        {this.state.PaginatedItems.map(obj => <tr key={obj.ChatLogId}>
+                        {this.state.PaginatedItems.map(obj => <tr key={obj.ChatLogID}>
                                                                   <td>
                                                                       {obj.SenderAccountName}
                                                                   </td>
                                                                   <td>
                                                                       {obj.SenderPlayer === null
-                                                                          ? obj.SenderDmname
+                                                                          ? obj.SenderDMName
                                                                           : obj.SenderPlayer.CharacterName}
                                                                   </td>
                                                                   <td>
-                                                                      {obj.SenderCdkey}
+                                                                      {obj.SenderCDKey}
                                                                   </td>
                                                                   <td>
                                                                       {obj.ReceiverAccountName}
                                                                   </td>
                                                                   <td>
                                                                       {obj.ReceiverPlayer === null
-                                                                          ? obj.ReceiverDmname
+                                                                          ? obj.ReceiverDMName
                                                                           : obj.ReceiverPlayer.CharacterName}
                                                                   </td>
                                                                   <td>
-                                                                      {obj.ReceiverCdkey}
+                                                                      {obj.ReceiverCDKey}
                                                                   </td>
                                                                   <td>
                                                                       {obj.Message}

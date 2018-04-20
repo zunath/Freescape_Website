@@ -13,7 +13,7 @@ namespace Freescape.Web.ViewModels
     {
         public QuickBuildLogsViewModel(DataContext db)
             : base(BuildClientData(db),
-                nameof(StructureQuickBuildAudit.StructureQuickBuildId))
+                nameof(StructureQuickBuildAudit.StructureQuickBuildID))
         {
         }
 

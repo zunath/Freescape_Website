@@ -13,7 +13,7 @@ namespace Freescape.Web.ViewModels
     {
         public ChatLogsViewModel(DataContext db)
             : base(BuildClientData(db),
-                nameof(ChatLog.ChatLogId))
+                nameof(ChatLog.ChatLogID))
         {
 
         }

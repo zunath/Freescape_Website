@@ -1,7 +1,6 @@
 ﻿import * as React from 'react';
 import * as dotnetify from 'dotnetify';
 import { Link } from 'react-router-dom';
-import { TabContent, TabPane, Row, Col } from 'reactstrap';
 
 export default class Perks extends React.Component {
     constructor(props) {

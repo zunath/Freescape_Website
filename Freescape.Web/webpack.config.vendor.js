@@ -31,7 +31,8 @@ module.exports = (env) => {
                 'react-router-redux',
                 'dotnetify',
                 'font-awesome/css/font-awesome.css',
-                'react-responsive-carousel/lib/styles/carousel.css'
+                'react-responsive-carousel/lib/styles/carousel.css',
+                'react-toastify/dist/ReactToastify.css'
             ],
         },
         output: {
@@ -39,6 +40,7 @@ module.exports = (env) => {
             filename: '[name].js',
             library: '[name]_[hash]',
         },
+        mode: isDevBuild ? 'development' : 'production',
         plugins: [
 
             new webpack.ProvidePlugin({
@@ -68,7 +70,7 @@ module.exports = (env) => {
                 name: '[name]_[hash]'
             })
         ].concat(isDevBuild ? [] : [
-            new webpack.optimize.UglifyJsPlugin()
+            
         ])
     });
 

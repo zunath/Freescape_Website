@@ -3,6 +3,7 @@ using System.Linq;
 using DotNetify;
 using Freescape.Web.Data;
 using Freescape.Web.Data.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace Freescape.Web.ViewModels
 {
@@ -66,6 +67,11 @@ namespace Freescape.Web.ViewModels
         private void LoadPerkList()
         {
             PerkList = _db.Perks
+                .Include(i => i.ExecutionType)
+                .Include(i => i.CooldownCategory)
+                .Include(i => i.PerkLevels)
+                .ThenInclude(i => i.PerkLevelSkillRequirements)
+                .ThenInclude(i => i.Skill)
                 .Where(x => x.IsActive &&
                             x.PerkCategoryID == SelectedCategoryID)
                 .OrderBy(o => o.PerkID)

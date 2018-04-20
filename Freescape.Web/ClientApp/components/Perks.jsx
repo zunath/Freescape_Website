@@ -1,6 +1,7 @@
 ﻿import * as React from 'react';
 import * as dotnetify from 'dotnetify';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { TabContent, TabPane, Row, Col } from 'reactstrap';
 
 export default class Perks extends React.Component {
     constructor(props) {
@@ -13,7 +14,8 @@ export default class Perks extends React.Component {
             PerkList: [],
             SelectedCategoryID: 0,
             SelectedPerkID: 0,
-            SelectedPerk: {}
+            SelectedPerk: {},
+            ActiveTab: 1
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -42,6 +44,14 @@ export default class Perks extends React.Component {
         }, () => this.dispatch({ [name]: value }));
     }
 
+    toggle(tab) {
+        if (this.state.ActiveTab !== tab) {
+            this.setState({
+                ActiveTab: tab
+            });
+        }
+    }
+
     render() {
         return (
             <div>
@@ -54,7 +64,7 @@ export default class Perks extends React.Component {
                                 <p>
                                     Perks cover a wide range of upgrades available to your character.
                                     <br />
-                                    Every time you gain a skill level, you also gain 1 skill point (SP). 
+                                    Every time you gain a skill level, you also gain 1 skill point (SP).
                                     <br />
                                     These SP can be spent to purchase everything from stat upgrades like HP and Mana to learning new spells and abilities.
                                     <br />
@@ -94,7 +104,7 @@ export default class Perks extends React.Component {
 
                             <div className="list-group">
                                 {this.state.PerkList.map(obj =>
-                                    <Link key={obj.PerkId}
+                                    <Link key={obj.PerkID}
                                         className={this.state.SelectedPerkID === obj.PerkID ? 'list-group-item list-group-item-action active' : 'list-group-item list-group-item-action'}
                                         to="#"
                                         onClick={this.handleChange}
@@ -105,29 +115,143 @@ export default class Perks extends React.Component {
                                 )}
                             </div>
                         </div>
-                        <div className="col offset-1">
+                        <div className="col-8 offset-1">
                             <h3 className="center">Details</h3>
                             <hr />
 
                             <div className="row">
-                                <div className="col-3">
+                                <div className="col-4">
                                     <b>Name:</b>
                                 </div>
-                                <div className="col">
+                                <div className="col-8">
                                     {this.state.SelectedPerk.Name}
                                 </div>
 
                             </div>
                             <div className="row">&nbsp;</div>
+
+                            {this.state.SelectedPerk.ExecutionTypeID > 0 &&
+                                <div>
+                                    <div className="row">
+                                        <div className="col-4">
+                                            <b>Type:</b>
+                                        </div>
+                                        <div className="col-8">
+                                            <p>
+                                                {this.state.SelectedPerk.ExecutionType.Name}
+                                            </p>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
                             <div className="row">
-                                <div className="col-3">
+                                <div className="col-4">
                                     <b>Description:</b>
                                 </div>
-                                <div className="col">
-                                    {this.state.SelectedPerk.Description}
+                                <div className="col-8">
+                                    <p>
+                                        {this.state.SelectedPerk.Description}
+                                    </p>
+
                                 </div>
                             </div>
-                            
+
+                            <div className="row">
+                                {this.state.SelectedPerk.BaseManaCost > 0 && [
+                                    <div className="col-2 pl-5">
+                                        <b>Mana:</b>
+                                    </div>,
+                                    <div className="col-1">
+                                        {this.state.SelectedPerk.BaseManaCost}
+
+                                    </div>
+                                ]}
+
+                                {this.state.SelectedPerk.BaseCastingTime > 0.0 && [
+                                    <div className="col-2 pl-5">
+                                        <b>Delay:</b>
+                                    </div>,
+                                    <div className="col-1">
+                                        {this.state.SelectedPerk.BaseCastingTime}s
+                                        </div>
+                                ]}
+
+                                {this.state.SelectedPerk.CooldownCategory && this.state.SelectedPerk.CooldownCategory.BaseCooldownTime > 0.0 && [
+                                    <div className="col-2 pl-4">
+                                        <b>Cooldown:</b>
+                                    </div>,
+                                    <div className="col-1">
+                                        {this.state.SelectedPerk.CooldownCategory.BaseCooldownTime}s
+                                        </div>
+                                ]}
+                            </div>
+
+                            <div className="row">&nbsp;</div>
+                            <ul className="nav nav-tabs"
+                                role="tablist">
+                                {this.state.SelectedPerk.PerkLevels && this.state.SelectedPerk.PerkLevels.map(perkLevel =>
+                                    <li className="nav-item"
+                                        key={'tab_' + perkLevel.PerkLevelID}>
+                                        <Link
+                                            className={this.state.ActiveTab === perkLevel.Level ? 'nav-link active' : 'nav-link'}
+                                            data-toggle="tab"
+                                            to={'#nav-rank' + perkLevel.Level} role="tab">Lvl {perkLevel.Level}</Link>
+                                    </li>
+                                )}
+                            </ul>
+
+                            <div className="tab-content">
+                                {this.state.SelectedPerk.PerkLevels && this.state.SelectedPerk.PerkLevels.map(perkLevel =>
+                                    <div className={this.state.ActiveTab === perkLevel.Level ? 'tab-pane active' : 'tab-pane'}
+                                        id={'nav-rank' + perkLevel.Level}
+                                        role="tabpanel"
+                                        key={'tabcontent_' + perkLevel.PerkLevelID}>
+                                        <div className="row">&nbsp;</div>
+                                        <div className="row">
+                                            <div className="col-2">
+                                                <b>Bonus:</b>
+                                            </div>
+                                            <div className="col-10">
+                                                {perkLevel.Description}
+                                            </div>
+                                        </div>
+                                        <div className="row">&nbsp;</div>
+                                        <div className="row">
+                                            <div className="col-2">
+                                                <b>Price:</b>
+                                            </div>
+                                            <div className="col-10">
+                                                {perkLevel.Price} SP
+                                            </div>
+                                        </div>
+                                        <div className="row">&nbsp;</div>
+
+                                        {perkLevel.PerkLevelSkillRequirements && perkLevel.PerkLevelSkillRequirements.length > 0 &&
+                                            <div className="row">
+                                                <div className="col">
+                                                    <b>Requirements:</b>
+                                                </div>
+                                            </div>
+                                        }
+
+                                        <div className="row">&nbsp;</div>
+
+                                        {perkLevel.PerkLevelSkillRequirements && perkLevel.PerkLevelSkillRequirements.map(req =>
+                                            <div className="row"
+                                                key={req.PerkLevelSkillRequirementID}>
+                                                <div className="col">
+                                                    {req.Skill.Name} rank {req.RequiredRank}
+                                                </div>
+                                            </div>
+                                        )}
+                                    </div>
+                                )}
+
+                            </div>
+
+
                         </div>
 
                     </div>

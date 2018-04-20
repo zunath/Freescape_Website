@@ -1,4 +1,6 @@
-﻿namespace Freescape.Web.Data.Entities
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Freescape.Web.Data.Entities
 {
     public class PerkLevelSkillRequirement
     {
@@ -7,7 +9,8 @@
         public int SkillID { get; set; }
         public int RequiredRank { get; set; }
 
-        public PerkLevel PerkLevel { get; set; }
+        [ForeignKey("SkillID")]
         public Skill Skill { get; set; }
+
     }
 }

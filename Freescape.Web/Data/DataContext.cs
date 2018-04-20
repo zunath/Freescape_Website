@@ -385,11 +385,6 @@ namespace Freescape.Web.Data
                 entity.Property(e => e.RequiredPerkLevel).HasDefaultValueSql("((0))");
 
                 entity.Property(e => e.SkillID).HasColumnName("SkillID");
-
-                entity.HasOne(d => d.Perk)
-                    .WithMany(p => p.CraftBlueprints)
-                    .HasForeignKey(d => d.PerkID)
-                    .HasConstraintName("FK_CraftBlueprints_PerkID");
             });
 
             modelBuilder.Entity<CraftDevice>(entity =>
@@ -890,12 +885,6 @@ namespace Freescape.Web.Data
                     .IsRequired()
                     .HasColumnName("PlayerID")
                     .HasMaxLength(60);
-
-                entity.HasOne(d => d.Perk)
-                    .WithMany(p => p.PCPerks)
-                    .HasForeignKey(d => d.PerkID)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("fk_PCPerks_PerkID");
             });
 
             modelBuilder.Entity<PCQuestKillTargetProgress>(entity =>
@@ -1169,12 +1158,6 @@ namespace Freescape.Web.Data
                 entity.Property(e => e.PerkID).HasColumnName("PerkID");
 
                 entity.Property(e => e.Price).HasDefaultValueSql("((0))");
-
-                entity.HasOne(d => d.Perk)
-                    .WithMany(p => p.PerkLevels)
-                    .HasForeignKey(d => d.PerkID)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_PerkLevels_PerkID");
             });
 
             modelBuilder.Entity<PerkLevelSkillRequirement>(entity =>
@@ -1190,11 +1173,8 @@ namespace Freescape.Web.Data
 
                 entity.Property(e => e.SkillID).HasColumnName("SkillID");
 
-                entity.HasOne(d => d.PerkLevel)
-                    .WithMany(p => p.PerkLevelSkillRequirements)
-                    .HasForeignKey(d => d.PerkLevelID)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_PerkLevelSkillRequirements_PerkLevelID");
+                
+
             });
 
             modelBuilder.Entity<Perk>(entity =>
@@ -1708,11 +1688,6 @@ namespace Freescape.Web.Data
                 entity.Property(e => e.SpecialCount).HasDefaultValueSql("((0))");
 
                 entity.Property(e => e.StructureCategoryID).HasColumnName("StructureCategoryID");
-
-                entity.HasOne(d => d.Perk)
-                    .WithMany(p => p.StructureBlueprints)
-                    .HasForeignKey(d => d.PerkID)
-                    .HasConstraintName("FK_StructureBlueprints_PerkID");
             });
 
             modelBuilder.Entity<StructureCategory>(entity =>

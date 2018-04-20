@@ -6,10 +6,7 @@ namespace Freescape.Web.Data.Entities
     {
         public Perk()
         {
-            CraftBlueprints = new HashSet<CraftBlueprint>();
-            PCPerks = new HashSet<PCPerk>();
             PerkLevels = new HashSet<PerkLevel>();
-            StructureBlueprints = new HashSet<StructureBlueprint>();
         }
 
         public int PerkID { get; set; }
@@ -29,9 +26,6 @@ namespace Freescape.Web.Data.Entities
         public CooldownCategory CooldownCategory { get; set; }
         public PerkExecutionType ExecutionType { get; set; }
         public PerkCategory PerkCategory { get; set; }
-        public ICollection<CraftBlueprint> CraftBlueprints { get; set; }
-        public ICollection<PCPerk> PCPerks { get; set; }
         public ICollection<PerkLevel> PerkLevels { get; set; }
-        public ICollection<StructureBlueprint> StructureBlueprints { get; set; }
     }
 }

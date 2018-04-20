@@ -83,7 +83,7 @@ export default class Skills extends React.Component {
                                         onChange={this.handleChange}
                                         value={this.state.SelectedCategoryID} >
                                     {this.state.SkillCategoryList.map(obj =>
-                                        <option key={obj.SkillCategoryId} value={obj.SkillCategoryID}>
+                                        <option key={obj.SkillCategoryID} value={obj.SkillCategoryID}>
                                             {obj.Name}
                                         </option>
                                     )}
@@ -96,7 +96,7 @@ export default class Skills extends React.Component {
                         
                         <div className="list-group">
                             {this.state.SkillList.map(obj =>
-                                <Link key={obj.SkillId}
+                                <Link key={obj.SkillID}
                                     className={this.state.SelectedSkillID === obj.SkillID ? 'list-group-item list-group-item-action active' : 'list-group-item list-group-item-action'}
                                     to="#"
                                     onClick={this.handleChange}

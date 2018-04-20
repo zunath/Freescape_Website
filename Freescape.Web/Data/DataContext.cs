@@ -24,6 +24,8 @@ namespace Freescape.Web.Data
         public virtual DbSet<DMRoleDomain> DMRoleDomain { get; set; }
         public virtual DbSet<Download> Downloads { get; set; }
         public virtual DbSet<FameRegion> FameRegions { get; set; }
+        public virtual DbSet<GameTopic> GameTopics { get; set; }
+        public virtual DbSet<GameTopicCategory> GameTopicCategories { get; set; }
         public virtual DbSet<GrowingPlant> GrowingPlants { get; set; }
         public virtual DbSet<Item> Items { get; set; }
         public virtual DbSet<ItemType> ItemTypes { get; set; }
@@ -479,6 +481,37 @@ namespace Freescape.Web.Data
 
                 entity.Property(e => e.FameRegionID)
                     .HasColumnName("FameRegionID")
+                    .ValueGeneratedNever();
+
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(32);
+            });
+
+            modelBuilder.Entity<GameTopic>(entity =>
+            {
+                entity.ToTable("GameTopics");
+                entity.HasKey(e => e.GameTopicID);
+
+                entity.Property(e => e.GameTopicID)
+                    .HasColumnName("GameTopicID")
+                    .ValueGeneratedNever();
+
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(32);
+
+                entity.Property(e => e.Text)
+                    .IsRequired();
+            });
+
+            modelBuilder.Entity<GameTopicCategory>(entity =>
+            {
+                entity.ToTable("GameTopicCategories");
+                entity.HasKey(e => e.GameTopicCategoryID);
+
+                entity.Property(e => e.GameTopicCategoryID)
+                    .HasColumnName("GameTopicCategoryID")
                     .ValueGeneratedNever();
 
                 entity.Property(e => e.Name)

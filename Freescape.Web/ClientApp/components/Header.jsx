@@ -70,13 +70,7 @@ export default class Header extends React.Component {
                                         <i className="fa fa-user-secret" /> &nbsp;Character Backgrounds
                                     </Link>
                                     <Link className="dropdown-item" to="/survival">
-                                        <i className="fa fa-compass" /> &nbsp;Survival
-                                    </Link>
-                                    <Link className="dropdown-item" to="/crafting">
-                                        <i className="fa fa-gavel" /> &nbsp;Crafting
-                                    </Link>
-                                    <Link className="dropdown-item" to="/construction">
-                                        <i className="fa fa-building" /> &nbsp;Construction
+                                        <i className="fa fa-compass" /> &nbsp;Survival Guide
                                     </Link>
 
                                 </div>

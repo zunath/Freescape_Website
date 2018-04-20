@@ -1,3 +1,7 @@
 .center {
     text-align: center;
 }
+
+.replace-newlines {
+    white-space: pre-line;
+}

@@ -22,13 +22,7 @@ export default class Skills extends React.Component {
     componentWillUnmount() {
         this.vm.$destroy();
     }
-
-    handleChangeCategory() {
-        this.dispatch({
-            SelectedCategory: this.state.SelectedCategory
-        });
-    }
-
+    
     handleChange(event) {
         const target = event.target;
         var value = target.type === 'checkbox' ? target.checked : target.value;
@@ -46,7 +40,7 @@ export default class Skills extends React.Component {
         return (
             <div>
                 <div className="row">
-                    <div className="col-10 offset-1">
+                    <div className="col-12">
                         <div className="card border-primary mb-3 center">
                             <div className="card-body">
                                 <h4 className="card-title">Skills</h4>

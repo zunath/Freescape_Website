@@ -56,7 +56,7 @@ export default class Perks extends React.Component {
         return (
             <div>
                 <div className="row">
-                    <div className="col-10 offset-1">
+                    <div className="col-12">
                         <div className="card border-primary mb-3 center">
                             <div className="card-body">
                                 <h4 className="card-title">Perks</h4>

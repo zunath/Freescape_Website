@@ -59,8 +59,6 @@ export default class Skills extends React.Component {
                             </div>
                         </div>
                     </div>
-
-
                 </div>
 
                 <div className="row">

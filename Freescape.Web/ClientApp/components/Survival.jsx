@@ -81,7 +81,7 @@ export default class Survival extends React.Component {
                                     onClick={this.handleChange}
                                     name="SelectedTopicID"
                                     data-topicid={obj.GameTopicID}>
-                                    {obj.Name}
+                                    <i className={'fa ' + obj.Icon}></i>&nbsp;&nbsp;{obj.Name} 
                                 </Link>
                             )}
                         </div>

@@ -30,9 +30,9 @@ module.exports = (env) => {
                 'redux-thunk',
                 'react-router-redux',
                 'dotnetify',
-                'font-awesome/css/font-awesome.css',
                 'react-responsive-carousel/lib/styles/carousel.css',
-                'react-toastify/dist/ReactToastify.css'
+                'react-toastify/dist/ReactToastify.css',
+                'font-awesome/css/font-awesome.min.css'
             ],
         },
         output: {

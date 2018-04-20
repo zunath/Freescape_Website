@@ -10,6 +10,7 @@ namespace Freescape.Web.Data.Entities
         public int GameTopicCategoryID { get; set; }
         public bool IsActive { get; set; }
         public int Sequence { get; set; }
+        public string Icon { get; set; }
 
         [ForeignKey("GameTopicCategoryID")]
         public GameTopicCategory Category { get; set; }

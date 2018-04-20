@@ -27,7 +27,7 @@ export default class Home extends React.Component {
                                         <li><Link to="/lore">Unique setting</Link></li>
                                         <li>Expansive sandbox</li>
                                         <li><Link to="/survival">Survival gameplay</Link></li>
-                                        <li>>Player-built bases</li>
+                                        <li>Player-built bases</li>
                                         <li>And much more!</li>
                                     </ul>
                                 </div>
@@ -39,7 +39,7 @@ export default class Home extends React.Component {
                             <div className="card-header">Connection Info</div>
                             <div className="card-body">
                                 <div className="card-text">
-                                    Direct Connect: freescape.eastus.cloudapp.azure.com:5121
+                                    Direct Connect: TBA
                                     <br />
                                     Downloads: <Link to="/downloads">Click Here</Link>
                                 </div>

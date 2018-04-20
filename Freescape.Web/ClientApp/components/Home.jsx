@@ -27,7 +27,7 @@ export default class Home extends React.Component {
                                         <li><Link to="/lore">Unique setting</Link></li>
                                         <li>Expansive sandbox</li>
                                         <li><Link to="/survival">Survival gameplay</Link></li>
-                                        <li><Link to="/construction">Player-built bases</Link></li>
+                                        <li>>Player-built bases</li>
                                         <li>And much more!</li>
                                     </ul>
                                 </div>

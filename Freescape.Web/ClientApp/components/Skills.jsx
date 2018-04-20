@@ -35,7 +35,7 @@ export default class Skills extends React.Component {
         const name = target.name;
 
         if (value === undefined)
-            value = target.skillid;
+            value = target.getAttribute('data-skillid');
         
         this.setState({
             [name]: value

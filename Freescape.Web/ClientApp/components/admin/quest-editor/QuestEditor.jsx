@@ -5,7 +5,8 @@ import QuestDetails from './QuestDetails';
 import QuestPrerequisites from './QuestPrerequisites';
 import QuestStates from './QuestStates';
 import QuestRewards from './QuestRewards';
-import { ToastContainer, toast } from 'react-toastify';
+import Notifier from '../../shared/Notifier';
+import Modal from '../../shared/Modal';
 
 export default class QuestEditor extends React.Component {
     constructor(props) {
@@ -45,22 +46,7 @@ export default class QuestEditor extends React.Component {
         this.confirmDiscardChanges = this.confirmDiscardChanges.bind(this);
         this.confirmDeleteQuest = this.confirmDeleteQuest.bind(this);
     }
-
-    notify() {
-        if (this.state.NotificationSuccessful) {
-            toast.success(this.state.NotificationMessage, {
-                position: toast.POSITION.TOP_RIGHT,
-                onOpen: () => this.setState({ ShowNotification: false })
-            });
-        }
-        else {
-            toast.error(this.state.NotificationMessage, {
-                position: toast.POSITION.TOP_RIGHT,
-                onOpen: () => this.setState({ShowNotification: false})
-            });
-        }
-    } 
-
+    
     componentWillUnmount() {
         this.vm.$destroy();
     }
@@ -199,44 +185,17 @@ export default class QuestEditor extends React.Component {
     render() {
         return (
             <div>
-                {this.state.ShowNotification && this.notify()}
+                <Notifier
+                    ShowNotification={this.state.ShowNotification}
+                    NotificationMessage={this.state.NotificationMessage}
+                    NotificationSuccessful={this.state.NotificationSuccessful} />
 
-                <ToastContainer />
-                
-                <div
-                    className="modal fade"
-                    id="confirmModal"
-                    tabIndex="-1"
-                    role="dialog"
-                    aria-labelledby="confirmModalLabel"
-                    aria-hidden="true">
-                    <div className="modal-dialog" role="document">
-                        <div className="modal-content">
-                            <div className="modal-header">
-                                <h5 className="modal-title" id="confirmModalLabel">{this.state.ModalHeader}</h5>
-                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div className="modal-body">
-                                {this.state.ModalBody}
-                            </div>
-                            <div className="modal-footer">
-                                <button type="button"
-                                        className="btn btn-primary"
-                                        onClick={this.state.ModalAction}
-                                        data-dismiss="modal">
-                                    {this.state.ModalActionText}
-                                </button>
-                                <button type="button"
-                                        className="btn btn-outline-primary"
-                                        data-dismiss="modal">
-                                    Close
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <Modal
+                    ModalID="confirmModal"
+                    Header={this.state.ModalHeader}
+                    Body={this.state.ModalBody}
+                    ActionText={this.state.ModalActionText}
+                    Action={this.state.ModalAction} />
 
 
                 <label htmlFor="selectQuest">Quest:</label>

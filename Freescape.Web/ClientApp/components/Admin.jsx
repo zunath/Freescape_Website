@@ -46,9 +46,9 @@ export default class Admin extends React.Component {
                             <h4 className="card-title">DM Management</h4>
                             <p className="card-text">Add, remove, activate, or deactivate accounts from logging in as Dungeon Masters.</p>
 
-                            <a className="btn btn-primary" href="/admin/dm-management" role="button">
+                            <Link className="btn btn-primary" to="/admin/dm-management" role="button">
                                 Manage DMs
-                            </a>
+                            </Link>
                         </div>
 
                     </div>
@@ -66,9 +66,9 @@ export default class Admin extends React.Component {
                             <h4 className="card-title">Loot Tables</h4>
                             <p className="card-text">Adjust the items found in loot sites.</p>
 
-                            <a className="btn btn-primary" href="/admin/loot-table-editor" role="button">
+                            <Link className="btn btn-primary" to="/admin/loot-table-editor" role="button">
                                 Manage Loot Tables
-                            </a>
+                            </Link>
                         </div>
 
                     </div>

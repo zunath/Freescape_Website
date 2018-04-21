@@ -680,12 +680,6 @@ namespace Freescape.Web.Data
                     .IsRequired()
                     .HasMaxLength(16)
                     .IsUnicode(false);
-
-                entity.HasOne(d => d.LootTable)
-                    .WithMany(p => p.LootTableItems)
-                    .HasForeignKey(d => d.LootTableID)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("fk_LootTableItems_LootTableID");
             });
 
             modelBuilder.Entity<LootTable>(entity =>

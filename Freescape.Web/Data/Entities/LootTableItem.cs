@@ -8,7 +8,5 @@
         public int MaxQuantity { get; set; }
         public byte Weight { get; set; }
         public bool IsActive { get; set; }
-
-        public LootTable LootTable { get; set; }
     }
 }

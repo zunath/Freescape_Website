@@ -17,11 +17,10 @@ import Admin from './components/Admin';
 import Downloads from './components/Downloads';
 import NotFound from './components/NotFound';
 import CharacterBackgrounds from './components/CharacterBackgrounds';
-import Crafting from './components/Crafting';
 import Perks from './components/Perks';
 import Skills from './components/Skills';
 import Survival from './components/Survival';
-import Construction from './components/Construction';
+import LootTableEditor from './components/admin/loot-table-editor/LootTableEditor';
 
 export const routes =
     <Layout>
@@ -36,12 +35,10 @@ export const routes =
             <Route exact path="/admin" component={Admin} />
             <Route exact path="/downloads" component={Downloads} />
             <Route exact path="/backgrounds" component={CharacterBackgrounds} />
-            <Route exact path="/crafting" component={Crafting} />
             <Route exact path="/perks" component={Perks} />
             <Route exact path="/skills" component={Skills} />
             <Route exact path="/survival" component={Survival} />
-            <Route exact path="/construction" component={Construction} />
-
+            
             /* User Logged-In Routes */
             <Route exact path="/user-profile" component={UserProfile} />
 
@@ -57,7 +54,8 @@ export const routes =
             <Route exact path="/admin/quest-editor/quest-prerequisites" component={QuestPrerequisites} />
             <Route exact path="/admin/quest-editor/quest-rewards" component={QuestRewards} />
             <Route exact path="/admin/quest-editor/quest-states" component={QuestStates} />
-
+            <Route exact path="/admin/loot-table-editor" component={LootTableEditor} />
+            
             <Route component={NotFound} />
         </Switch>
     </Layout>;

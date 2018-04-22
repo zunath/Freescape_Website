@@ -121,8 +121,10 @@ namespace Freescape.Web.ViewModels
         {
             int originalLootTableID = lootTable.LootTableID;
 
-            if (lootTable.LootTableID < -1)
-                lootTable.LootTableID = 0;
+            if (lootTable.LootTableID <= 0)
+            {
+                lootTable.LootTableID = _db.LootTables.Max(x => x.LootTableID) + 1; ;
+            }
 
             LootTableValidator validator = new LootTableValidator();
             var result = validator.Validate(lootTable);
@@ -145,6 +147,7 @@ namespace Freescape.Web.ViewModels
                         .SingleOrDefault(x => x.LootTableID == lootTable.LootTableID) ?? 
                      new LootTable();
             lt.Name = lootTable.Name;
+            lt.LootTableID = lootTable.LootTableID;
             
             _db.LootTableItems.RemoveRange(lt.LootTableItems);
             lt.LootTableItems.Clear();
@@ -154,7 +157,7 @@ namespace Freescape.Web.ViewModels
                 lt.LootTableItems.Add(lti);
             }
 
-            if (lt.LootTableID <= 0)
+            if (originalLootTableID <= 0)
             {
                 _db.LootTables.Add(lt);
             }

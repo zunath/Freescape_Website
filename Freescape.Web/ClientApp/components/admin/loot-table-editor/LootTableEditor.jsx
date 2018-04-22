@@ -30,6 +30,7 @@ export default class LootTableEditor extends React.Component {
         this.handleSaveChanges = this.handleSaveChanges.bind(this);
         this.handleDeleteLootTable = this.handleDeleteLootTable.bind(this);
         this.handleDiscardChanges = this.handleDiscardChanges.bind(this);
+        this.handleChangeName = this.handleChangeName.bind(this);
         this.confirmDiscardChanges = this.confirmDiscardChanges.bind(this);
         this.confirmDeleteLootTable = this.confirmDeleteLootTable.bind(this);
 
@@ -39,6 +40,8 @@ export default class LootTableEditor extends React.Component {
         this.receiveItemChanges = this.receiveItemChanges.bind(this);
         this.receiveDeleteItem = this.receiveDeleteItem.bind(this);
         this.clearNotification = this.clearNotification.bind(this);
+
+        this.getLootTableName = this.getLootTableName.bind(this);
     }
 
     componentWillUnmount() {
@@ -69,6 +72,14 @@ export default class LootTableEditor extends React.Component {
         }
     }
 
+    handleChangeName(event) {
+        const lt = this.state.ActiveLootTable;
+        lt.Name = event.target.value;
+
+        this.setState({
+            ActiveLootTable: lt
+        });
+    }
 
     handleAddLootTable() {
         const newLootTables = this.state.LootTableOptions;
@@ -209,6 +220,16 @@ export default class LootTableEditor extends React.Component {
         this.setState({ ShowNotification: false });
     }
 
+    getLootTableName() {
+        if (this.state.ActiveLootTable) {
+            if (this.state.ActiveLootTable.Name) {
+                return this.state.ActiveLootTable.Name;
+            }
+        }
+
+        return '';
+    }
+
     render() {
         return (
             <div>
@@ -267,6 +288,24 @@ export default class LootTableEditor extends React.Component {
 
                 <div className="row">&nbsp;</div>
 
+                <div className="row">
+                    <div className="col-1">
+                        <label className="pt-1">Name:</label>
+                    </div>
+                    <div className="col-10">
+                        <input
+                            type="text"
+                            className="form-control"
+                            value={this.state.ActiveLootTable && this.state.ActiveLootTable.Name ? this.state.ActiveLootTable.Name : ''}
+                            disabled={this.state.SelectedLootTableID === -1 ? true : false}
+                            onChange={this.handleChangeName}
+                            maxLength="64" />
+                    </div>
+
+                </div>
+
+
+                <div className="row">&nbsp;</div>
 
                 <div className="row">
                     <div className="col">

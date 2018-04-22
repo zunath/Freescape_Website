@@ -7,10 +7,6 @@ namespace Freescape.Web.Models.Validation
     {
         public LootTableValidator()
         {
-            RuleFor(x => x.LootTableID)
-                .NotNull()
-                .NotEmpty();
-
             RuleFor(x => x.Name)
                 .NotNull()
                 .NotEmpty()

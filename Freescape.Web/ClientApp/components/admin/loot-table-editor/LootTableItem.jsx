@@ -11,12 +11,14 @@ export default class LootTableItem extends React.Component {
             MaxQuantity: props.MaxQuantity,
             Weight: props.Weight,
             IsActive: props.IsActive,
-            OnUpdateParent: props.OnUpdateParent
+            OnUpdateParent: props.OnUpdateParent,
+            OnDelete: props.OnDelete
         }
 
         this.handleChange = this.handleChange.bind(this);
         this.handleChangeWeight = this.handleChangeWeight.bind(this);
         this.handleChangeMaxQuantity = this.handleChangeMaxQuantity.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
         this.raiseParentChanges = this.raiseParentChanges.bind(this);
     }
 
@@ -72,11 +74,17 @@ export default class LootTableItem extends React.Component {
         
     }
 
+    handleDelete() {
+        if (this.state.OnDelete) {
+            this.state.OnDelete(this.state.RecordID);
+        }
+    }
+
     render() {
         return (
             <div>
                 <div className="row">
-                    <div className="col-7">
+                    <div className="col-6">
                         <input
                             name="Resref"
                             className="form-control"
@@ -118,9 +126,16 @@ export default class LootTableItem extends React.Component {
                                 checked={this.state.IsActive}
                                 onChange={this.handleChange} />
                         </label>
-
-
                     </div>
+                    <div className="col-1">
+                        <input 
+                            name="Delete"
+                            className="btn btn-primary"
+                            type="button"
+                            value="Delete"
+                            onClick={this.handleDelete}/>
+                    </div>
+
                 </div>
 
                 <div className="row">&nbsp;</div>

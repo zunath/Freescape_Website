@@ -33,8 +33,11 @@ export default class LootTableEditor extends React.Component {
         this.confirmDiscardChanges = this.confirmDiscardChanges.bind(this);
         this.confirmDeleteLootTable = this.confirmDeleteLootTable.bind(this);
 
+        this.addItem = this.addItem.bind(this);
+
         this.renderItems = this.renderItems.bind(this);
         this.receiveItemChanges = this.receiveItemChanges.bind(this);
+        this.receiveDeleteItem = this.receiveDeleteItem.bind(this);
     }
 
     componentWillUnmount() {
@@ -110,6 +113,21 @@ export default class LootTableEditor extends React.Component {
         });
     }
 
+    addItem() {
+        const lt = this.state.ActiveLootTable;
+        const items = lt.LootTableItems;
+        items.push({
+            Resref: '',
+            MaxQuantity: 1,
+            Weight: 10,
+            IsActive: true
+        });
+
+        this.setState({
+            ActiveLootTable: lt
+        });
+    }
+
     confirmDeleteLootTable() {
         if (this.state.SelectedLootTableID === -2) {
             const newLootTables = this.state.LootTableOptions;
@@ -153,9 +171,19 @@ export default class LootTableEditor extends React.Component {
         });
     }
 
+    receiveDeleteItem(recordID) {
+        const lt = this.state.ActiveLootTable;
+        const items = lt.LootTableItems;
+        items.splice(recordID, 1);
+
+        this.setState({
+            ActiveLootTable: lt
+        });
+    }
+
     renderItems() {
         if (!this.state.ActiveLootTable || !this.state.ActiveLootTable.LootTableItems) {
-            return <div>No items set for this loot table.</div>
+            return <div>No items set for this loot table.</div>;
         }
         else {
             return (
@@ -168,10 +196,11 @@ export default class LootTableEditor extends React.Component {
                             MaxQuantity={lti.MaxQuantity}
                             Weight={lti.Weight}
                             IsActive={lti.IsActive}
-                            OnUpdateParent={this.receiveItemChanges}/>
+                            OnUpdateParent={this.receiveItemChanges}
+                            OnDelete={this.receiveDeleteItem}/>
                     )}
                 </div>
-            )
+            );
         }
     }
 
@@ -189,7 +218,7 @@ export default class LootTableEditor extends React.Component {
                     Header={this.state.ModalHeader}
                     Body={this.state.ModalBody}
                     ActionText={this.state.ModalActionText}
-                    Action={this.state.ModalAction} />
+                    ActionCallback={this.state.ModalAction} />
 
                 <label htmlFor="selectLootTable">Loot Table:</label>
                 <div className="row">
@@ -232,8 +261,23 @@ export default class LootTableEditor extends React.Component {
 
                 <div className="row">&nbsp;</div>
 
+
                 <div className="row">
-                    <div className="col-7 center">
+                    <div className="col">
+                        <input
+                            type="button"
+                            className="btn btn-primary btn-block"
+                            value="Add Item"
+                            disabled={this.state.SelectedLootTableID === -1 ? true : false}
+                            onClick={this.addItem} />
+                    </div>
+
+                </div>
+
+                <div className="row">&nbsp;</div>
+
+                <div className="row">
+                    <div className="col-6 center">
                         <b>Resref</b>
                         <hr />
                     </div>
@@ -251,6 +295,10 @@ export default class LootTableEditor extends React.Component {
                         <b>Is Active</b>
                         <hr />
                     </div>
+                    <div className="col-1 center">
+                        <b>Actions</b>
+                    </div>
+
                 </div>
 
                 {this.renderItems()}

@@ -45,6 +45,7 @@ export default class QuestEditor extends React.Component {
         this.receiveQuestRewardsChanges = this.receiveQuestRewardsChanges.bind(this);
         this.confirmDiscardChanges = this.confirmDiscardChanges.bind(this);
         this.confirmDeleteQuest = this.confirmDeleteQuest.bind(this);
+        this.clearNotification = this.clearNotification.bind(this);
     }
     
     componentWillUnmount() {
@@ -182,13 +183,19 @@ export default class QuestEditor extends React.Component {
         
     }
 
+    clearNotification() {
+        this.setState({ ShowNotification: false });
+    }
+
+
     render() {
         return (
             <div>
                 <Notifier
                     ShowNotification={this.state.ShowNotification}
                     NotificationMessage={this.state.NotificationMessage}
-                    NotificationSuccessful={this.state.NotificationSuccessful} />
+                    NotificationSuccessful={this.state.NotificationSuccessful}
+                    OnOpened={this.clearNotification} />
 
                 <Modal
                     ModalID="confirmModal"

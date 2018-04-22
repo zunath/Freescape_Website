@@ -8,8 +8,11 @@ export default class Notifier extends React.Component {
         this.state = {
             ShowNotification: props.ShowNotification,
             NotificationMessage: props.NotificationMessage,
-            NotificationSuccessful: props.NotificationSuccessful
+            NotificationSuccessful: props.NotificationSuccessful,
+            OnOpened: props.OnOpened
         }
+
+        this.raiseHasOpened = this.raiseHasOpened.bind(this);
     }
     
     componentWillUnmount() {
@@ -23,17 +26,24 @@ export default class Notifier extends React.Component {
         });
     }
 
+    raiseHasOpened() {
+        this.setState({ ShowNotification: false });
+        if (this.state.OnOpened) {
+            this.state.OnOpened();
+        }
+    }
+
     notify() {
         if (this.state.NotificationSuccessful) {
             toast.success(this.state.NotificationMessage, {
                 position: toast.POSITION.TOP_RIGHT,
-                onOpen: () => this.setState({ ShowNotification: false })
+                onOpen: () => this.raiseHasOpened()
             });
         }
         else {
             toast.error(this.state.NotificationMessage, {
                 position: toast.POSITION.TOP_RIGHT,
-                onOpen: () => this.setState({ ShowNotification: false })
+                onOpen: () => this.raiseHasOpened()
             });
         }
     } 

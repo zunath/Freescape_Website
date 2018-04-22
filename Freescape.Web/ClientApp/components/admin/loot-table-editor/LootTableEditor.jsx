@@ -38,6 +38,7 @@ export default class LootTableEditor extends React.Component {
         this.renderItems = this.renderItems.bind(this);
         this.receiveItemChanges = this.receiveItemChanges.bind(this);
         this.receiveDeleteItem = this.receiveDeleteItem.bind(this);
+        this.clearNotification = this.clearNotification.bind(this);
     }
 
     componentWillUnmount() {
@@ -204,6 +205,10 @@ export default class LootTableEditor extends React.Component {
         }
     }
 
+    clearNotification() {
+        this.setState({ ShowNotification: false });
+    }
+
     render() {
         return (
             <div>
@@ -211,7 +216,8 @@ export default class LootTableEditor extends React.Component {
                 <Notifier
                     ShowNotification={this.state.ShowNotification}
                     NotificationMessage={this.state.NotificationMessage}
-                    NotificationSuccessful={this.state.NotificationSuccessful} />
+                    NotificationSuccessful={this.state.NotificationSuccessful}
+                    OnOpened={this.clearNotification} />
 
                 <Modal
                     ModalID="confirmModal"

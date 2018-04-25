@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import SS1 from '../images/Freescape_SS1.jpg';
 import SS2 from '../images/Freescape_SS2.jpg';
 import SS3 from '../images/Freescape_SS3.jpg';
+import SS4 from '../images/Freescape_SS4.jpg';
 
 export default class Home extends React.Component {
     render() {
@@ -62,6 +63,9 @@ export default class Home extends React.Component {
 
 
                 <Carousel>
+                    <div>
+                        <img src={SS4} alt="Screenshot 1" className="img-fluid" />
+                    </div>
                     <div>
                         <img src={SS1} alt="Screenshot 1" className="img-fluid" />
                     </div>

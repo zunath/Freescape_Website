@@ -5,6 +5,8 @@ import SS1 from '../images/Freescape_SS1.jpg';
 import SS2 from '../images/Freescape_SS2.jpg';
 import SS3 from '../images/Freescape_SS3.jpg';
 import SS4 from '../images/Freescape_SS4.jpg';
+import SS5 from '../images/Freescape_SS5.jpg';
+import SS6 from '../images/Freescape_SS6.jpg';
 
 export default class Home extends React.Component {
     render() {
@@ -67,13 +69,19 @@ export default class Home extends React.Component {
                         <img src={SS4} alt="Screenshot 1" className="img-fluid" />
                     </div>
                     <div>
-                        <img src={SS1} alt="Screenshot 1" className="img-fluid" />
+                        <img src={SS1} alt="Screenshot 2" className="img-fluid" />
                     </div>
                     <div>
-                        <img src={SS2} alt="Screenshot 2" className="img-fluid" />
+                        <img src={SS5} alt="Screenshot 3" className="img-fluid" />
                     </div>
                     <div>
-                        <img src={SS3} alt="Screenshot 3" className="img-fluid" />
+                        <img src={SS2} alt="Screenshot 4" className="img-fluid" />
+                    </div>
+                    <div>
+                        <img src={SS6} alt="Screenshot 5" className="img-fluid" />
+                    </div>
+                    <div>
+                        <img src={SS3} alt="Screenshot 6" className="img-fluid" />
                     </div>
                 </Carousel>
 
